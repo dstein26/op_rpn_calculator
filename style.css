@@ -2,7 +2,7 @@
 
 html, body
 {
-    background-color: blueviolet;
+    background-color: white;
     padding: 0;
     margin:0;
     display: flex;
@@ -43,46 +43,59 @@ footer
 
 .calculator-body
 {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(76, 76, 76);
-    max-width: 550px;
+    background-color: rgb(100, 100, 100);
+    border-radius: 20px;
+    width: auto;
+    /* max-width: 500px; */
+    min-height: 500px;
+}
+
+.calculator-contents
+{
+    box-sizing: border-box;
+    display:grid;
+    /* grid-template-columns: repeat(7, 1fr); */
     width: 100%;
-    align-items: center;
-    margin:10px;
-    border-radius: 10px;
-    /* box-shadow: 5px 5px 5px rgb(160, 160, 160); */
-	box-shadow: inset 2px 2px 2px 2px rgb(176, 176, 176);
-	padding:20px;
-    font-family: 'Courier Prime', serif;
-	font-size: 20px;
+    height: 100%;
+    border-radius: inherit;
+    grid-template:  "AC     del ud  ud  d   d   d"
+                    "s      c   t   sqr d   d   d"
+                    "inv    sq  pow x   d   d   d"
+                    "sev    ei  nin div d   d   d"
+                    "four   fiv six pls d   d   d"
+                    "one    two thr min d   d   d"
+                    "dec    zer e   e   d   d   d";
+    grid-template-columns: repeat(7, 5em);
+    grid-template-rows: repeat(7, 5em);
+    padding: 15px;
+    gap:2px;
+}
+
+.shadow-inset
+{
+    box-shadow: inset 2px 2px 2px 2px rgb(176, 176, 176);
+}
+
+.shadow-outset
+{
+    box-shadow: 5px 5px 5px rgb(160, 160, 160);
 }
 
 .calculator-display
 {
-    width: 100%;
-    margin-bottom: 20px;
-    min-height: 6em;
-    max-height: 16em;
+    /* min-height: 6em;
+    max-height: 16em; */
+    display:flex;
+    justify-content: left;
     background-color: rgb(231, 231, 231);
     border-radius: 5px;
     box-shadow: inset 0 0 2px rgb(160,160, 160);
-    text-align: right;
+
 }
 
 .calculator-display > *
 {
     margin: 5px 2px 5px 2px;
-}
-
-.button-container
-{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px 10px;
-	width:100%;
-	min-height:40em;
-    /* grid-auto-rows: minmax(100px, auto); */
 }
 
 .button
@@ -92,9 +105,13 @@ footer
     align-items: center;
     text-align: center;
 	border: 1px solid black;
-    /* aspect-ratio: 1 / 1; */	
-    min-width: 3em;
+    height:5em;
     border-radius:10px;
+}
+
+.img-scale
+{
+    scale:40%;
 }
 
 .blank

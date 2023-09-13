@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>RPN Calculator</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
@@ -13,39 +13,81 @@
     <body>
         <script src="calculator.js" async defer></script>
 		
-        <header><h2>Calculator</h2></header>
+        <!-- <header><h2>Calculator</h2></header> -->
 
         <div class="main-content">
-            <div class="calculator-body">
-                <div class="calculator-display">
-                    <p>-12345</p>
-                </div>
-
-                <div class="button-container">
-				
-                    <div class="button theme-bright">AC</div>
-                    <div class="button theme-bright">C</div>
-                    <div class="button theme-numeric "><i class="fa-solid fa-plus-minus"></i></div>
-                    <div class="button theme-numeric"><i class="fa-solid fa-divide"></i></div>
-					
-                    <div class="button theme-numeric">7</div>
-                    <div class="button theme-numeric">8</div>
-                    <div class="button theme-numeric">9</div>
-                    <div class="button theme-numeric"><i class="fa-solid fa-xmark"></i></div>
-					
-                    <div class="button theme-numeric">4</div>
-                    <div class="button theme-numeric">5</div>
-                    <div class="button theme-numeric">6</div>
-                    <div class="button theme-numeric">-</div>
-					
-                    <div class="button theme-numeric">1</div>
-                    <div class="button theme-numeric">2</div>
-                    <div class="button theme-numeric">3</div>
-                    <div class="button theme-numeric">+</div>
-					
-                    <div class="button theme-numeric">.</div>
-                    <div class="button theme-numeric">0</div>
-                    <div class="button theme-bright" style="grid-column:3 / 5"><i class="fa-solid fa-share"></i></div>
+            <div class="calculator-body shadow-outset">
+                <div class="calculator-contents shadow-inset">
+                    <div class="button theme-bright" style="grid-area: AC;">AC</div>
+                    <div class="button theme-bright" style="grid-area: del;">C</div>
+                    <div class="button theme-numeric" style="grid-area: ud;"><img class="img-scale" src="assets/rotate-left-solid.svg"></div>
+                    <div class="button theme-numeric" style="grid-area: s;">sine</div>
+                    <div class="button theme-numeric" style="grid-area: c;">cosine</div>
+                    <div class="button theme-numeric" style="grid-area: t;">tan</div>
+                    <div class="button theme-numeric" style="grid-area: sqr;">sqrt</div>
+                    <div class="button theme-numeric" style="grid-area: inv;">inv</div>
+                    <div class="button theme-numeric" style="grid-area: sq;">sq</div>
+                    <div class="button theme-numeric" style="grid-area: pow;">^</div>
+                    <div class="button theme-numeric" style="grid-area: x;">x</div>
+                    <div class="button theme-numeric" style="grid-area: sev;">7</div>
+                    <div class="button theme-numeric" style="grid-area: ei;">8</div>
+                    <div class="button theme-numeric" style="grid-area: nin;">9</div>
+                    <div class="button theme-numeric" style="grid-area: div;">/</div>
+                    <div class="button theme-numeric" style="grid-area: four;">4</div>
+                    <div class="button theme-numeric" style="grid-area: fiv;">5</div>
+                    <div class="button theme-numeric" style="grid-area: six;">6</div>
+                    <div class="button theme-numeric" style="grid-area: pls;">+</div>
+                    <div class="button theme-numeric" style="grid-area: one;">1</div>
+                    <div class="button theme-numeric" style="grid-area: two;">2</div>
+                    <div class="button theme-numeric" style="grid-area: thr;">3</div>
+                    <div class="button theme-numeric" style="grid-area: min;">-</div>
+                    <div class="button theme-numeric" style="grid-area: dec;">.</div>
+                    <div class="button theme-numeric" style="grid-area: zer;">0</div>
+                    <div class="button theme-numeric" style="grid-area: e;"><img class="img-scale" style="transform: rotate(90deg);" src="assets/turn-up-solid.svg"></div>
+                    <div class="calculator-display" style="grid-area: d;">
+                        <table>
+                            <tr>
+                                <td>9:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>8:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>7:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>6:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>5:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>4:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>3:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>2:</td>
+                                <td>42</td>
+                            </tr>
+                            <tr>
+                                <td>1:</td>
+                                <td>-3.14159</td>
+                            </tr>
+                            <tr>
+                                <td>0:</td>
+                                <td>123456789</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
