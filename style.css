@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Victor+Mono");
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime");
 
 html, body
 {
@@ -45,20 +45,23 @@ footer
 {
     display: flex;
     flex-direction: column;
-    background-color: rgb(76, 131, 177);
+    background-color: rgb(76, 76, 76);
     max-width: 550px;
     width: 100%;
     align-items: center;
     margin:10px;
     border-radius: 10px;
-    box-shadow: 5px 5px 5px rgb(160, 160, 160);
+    /* box-shadow: 5px 5px 5px rgb(160, 160, 160); */
+	box-shadow: inset 2px 2px 2px 2px rgb(176, 176, 176);
+	padding:20px;
+    font-family: 'Courier Prime', serif;
+	font-size: 20px;
 }
 
 .calculator-display
 {
-    font-family: 'Victor Mono', serif;
-    width: 90%;
-    margin:20px;
+    width: 100%;
+    margin-bottom: 20px;
     min-height: 6em;
     max-height: 16em;
     background-color: rgb(231, 231, 231);
@@ -77,7 +80,9 @@ footer
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px 10px;
-    grid-auto-rows: minmax(100px, auto);
+	width:100%;
+	min-height:40em;
+    /* grid-auto-rows: minmax(100px, auto); */
 }
 
 .button
@@ -85,16 +90,25 @@ footer
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Victor Mono', serif;
     text-align: center;
-    background-color: darkgrey;
-    aspect-ratio: 1 / 1;
+	border: 1px solid black;
+    /* aspect-ratio: 1 / 1; */	
     min-width: 3em;
-    border-radius:2em;
+    border-radius:10px;
 }
 
 .blank
 {
     background-color: inherit;
     aspect-ratio: 1 / 1;
+}
+
+.theme-numeric
+{
+	background-color: #cbd1d0;
+}
+
+.theme-bright
+{
+	background-color: #cbb10b;
 }

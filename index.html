@@ -7,9 +7,12 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
+		<script src="https://kit.fontawesome.com/a59fa24bb2.js" crossorigin="anonymous"></script>
+		<link rel="icon" href="assets/calculator-solid.svg">
     </head>
     <body>
         <script src="calculator.js" async defer></script>
+		
         <header><h2>Calculator</h2></header>
 
         <div class="main-content">
@@ -19,26 +22,30 @@
                 </div>
 
                 <div class="button-container">
-                    <div class="button">AC</div>
-                    <div class="button">C</div>
-                    <div class="blank"></div>
-                    <div class="blank"></div>
-                    <div class="button">7</div>
-                    <div class="button">8</div>
-                    <div class="button">9</div>
-                    <div class="button">/</div>
-                    <div class="button">4</div>
-                    <div class="button">5</div>
-                    <div class="button">6</div>
-                    <div class="button">x</div>
-                    <div class="button">1</div>
-                    <div class="button">2</div>
-                    <div class="button">3</div>
-                    <div class="button">-</div>
-                    <div class="blank"></div>
-                    <div class="button">0</div>
-                    <div class="button">=</div>
-                    <div class="button">+</div>
+				
+                    <div class="button theme-bright">AC</div>
+                    <div class="button theme-bright">C</div>
+                    <div class="button theme-numeric "><i class="fa-solid fa-plus-minus"></i></div>
+                    <div class="button theme-numeric"><i class="fa-solid fa-divide"></i></div>
+					
+                    <div class="button theme-numeric">7</div>
+                    <div class="button theme-numeric">8</div>
+                    <div class="button theme-numeric">9</div>
+                    <div class="button theme-numeric"><i class="fa-solid fa-xmark"></i></div>
+					
+                    <div class="button theme-numeric">4</div>
+                    <div class="button theme-numeric">5</div>
+                    <div class="button theme-numeric">6</div>
+                    <div class="button theme-numeric">-</div>
+					
+                    <div class="button theme-numeric">1</div>
+                    <div class="button theme-numeric">2</div>
+                    <div class="button theme-numeric">3</div>
+                    <div class="button theme-numeric">+</div>
+					
+                    <div class="button theme-numeric">.</div>
+                    <div class="button theme-numeric">0</div>
+                    <div class="button theme-bright" style="grid-column:3 / 5"><i class="fa-solid fa-share"></i></div>
                 </div>
             </div>
         </div>
