@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Victor+Mono");
+
 html, body
 {
     background-color: blueviolet;
@@ -7,4 +9,92 @@ html, body
     flex-direction: column;
     height: 100%;
     box-sizing: border-box;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header
+{
+    margin:0;
+    padding:5px;
+    background-color: white;
+    color: black;
+    border:1px solid black;
+}
+
+footer
+{
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.main-content
+{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: white;
+    color: black;
+    align-items: center;
+}
+
+.calculator-body
+{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(76, 131, 177);
+    max-width: 550px;
+    width: 100%;
+    align-items: center;
+    margin:10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgb(160, 160, 160);
+}
+
+.calculator-display
+{
+    font-family: 'Victor Mono', serif;
+    width: 90%;
+    margin:20px;
+    min-height: 6em;
+    max-height: 16em;
+    background-color: rgb(231, 231, 231);
+    border-radius: 5px;
+    box-shadow: inset 0 0 2px rgb(160,160, 160);
+    text-align: right;
+}
+
+.calculator-display > *
+{
+    margin: 5px 2px 5px 2px;
+}
+
+.button-container
+{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.button
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Victor Mono', serif;
+    text-align: center;
+    background-color: darkgrey;
+    aspect-ratio: 1 / 1;
+    min-width: 3em;
+    border-radius:2em;
+}
+
+.blank
+{
+    background-color: inherit;
+    aspect-ratio: 1 / 1;
 }
