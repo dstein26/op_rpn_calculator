@@ -22,36 +22,36 @@
             <div class="calculator-body shadow-outset">
                 <div class="calculator-contents shadow-inset">
 					<!-- Numeric Key Pad -->
-					<button id="n0" value=0 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n0;">0</button>
-					<button id="n1" value=1 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n1;">1</button>
-                    <button id="n2" value=2 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n2;">2</button>
-                    <button id="n3" value=3 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n3;">3</button>
-					<button id="n4" value=4 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n4;">4</button>
-                    <button id="n5" value=5 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n5;">5</button>
-                    <button id="n6" value=6 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n6;">6</button>
-					<button id="n7" value=7 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n7;">7</button>
-                    <button id="n8" value=8 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n8;">8</button>
-                    <button id="n9" value=9 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n9;">9</button>
-					<button id="dec" value='.' onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: dec;">.</button>
+					<button value=0 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n0;">0</button>
+					<button value=1 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n1;">1</button>
+                    <button value=2 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n2;">2</button>
+                    <button value=3 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n3;">3</button>
+					<button value=4 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n4;">4</button>
+                    <button value=5 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n5;">5</button>
+                    <button value=6 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n6;">6</button>
+					<button value=7 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n7;">7</button>
+                    <button value=8 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n8;">8</button>
+                    <button value=9 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n9;">9</button>
+					<button value='.' onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: dec;">.</button>
 					
 					<!-- Operators -->
-					<button id="x" class="button theme-numeric" style="grid-area: x;"><img src="assets/xmark-solid.svg"></button>
-                    <button id="button" class="button theme-numeric" style="grid-area: div;"><img src="assets/divide-solid.svg"></button>                    
-                    <button id="pls" class="button theme-numeric" style="grid-area: pls;"><img src="assets/plus-solid.svg"></button>                    
-                    <button id="min" class="button theme-numeric" style="grid-area: min;"><img src="assets/minus-solid.svg"></button>
-					<button id="sin" class="button theme-numeric" style="grid-area: s;">sin(x)</button>
-                    <button id="cos" class="button theme-numeric" style="grid-area: c;">cos(x)</button>
-                    <button id="tan" class="button theme-numeric" style="grid-area: t;">tan(x)</button>
-					<button id="sqrt" class="button theme-numeric" style="grid-area: sqr;"><img src="assets/square-root-variable-solid.svg"></button>
-                    <button id="inv" class="button theme-numeric" style="grid-area: inv;">x<sup>-1</sup></button>
-                    <button id="sqr" class="button theme-numeric" style="grid-area: sq;">x<sup>2</sup></button>
-                    <button id="pow" class="button theme-numeric" style="grid-area: pow;">x<sup>y</sup></button>
+					<button value="*" onclick=operations(this.value) class="button theme-numeric" style="grid-area: x;"><img src="assets/xmark-solid.svg"></button>
+                    <button value="/" onclick=operations(this.value) class="button theme-numeric" style="grid-area: div;"><img src="assets/divide-solid.svg"></button>                    
+                    <button value="+" onclick=operations(this.value) class="button theme-numeric" style="grid-area: pls;"><img src="assets/plus-solid.svg"></button>                    
+                    <button value="-" onclick=operations(this.value) class="button theme-numeric" style="grid-area: min;"><img src="assets/minus-solid.svg"></button>
+					<button value="s" onclick=operations(this.value) class="button theme-numeric" style="grid-area: s;">sin(x)</button>
+                    <button value="c" onclick=operations(this.value) class="button theme-numeric" style="grid-area: c;">cos(x)</button>
+                    <button value="t" onclick=operations(this.value) class="button theme-numeric" style="grid-area: t;">tan(x)</button>
+					<button value="sqr_rt" onclick=operations(this.value) class="button theme-numeric" style="grid-area: sqr;"><img src="assets/square-root-variable-solid.svg"></button>
+                    <button value="inv" onclick=operations(this.value) class="button theme-numeric" style="grid-area: inv;">x<sup>-1</sup></button>
+                    <button value="sqr" onclick=operations(this.value) class="button theme-numeric" style="grid-area: sq;">x<sup>2</sup></button>
+                    <button value="^" onclick=operations(this.value) class="button theme-numeric" style="grid-area: pow;">x<sup>y</sup></button>
 					
 					<!-- Actions -->
-                    <button id="ac" onclick=clearOutputTable() class="button theme-bright" style="grid-area: AC;">AC</button>
+                    <button id="ac" onclick=clearAll() class="button theme-bright" style="grid-area: AC;">AC</button>
                     <button id="del" class="button theme-bright" style="grid-area: del;">C</button>
                     <button id="ud" class="button theme-bright" style="grid-area: ud;"><img src="assets/rotate-left-solid.svg"></button>
-                    <button id="ent" class="button theme-bright" style="grid-area: e;"><img style="transform: rotate(90deg);" src="assets/turn-up-solid.svg"></button>
+                    <button id="ent" onclick=sendToStack() class="button theme-bright" style="grid-area: e;"><img style="transform: rotate(90deg);" src="assets/turn-up-solid.svg"></button>
 					
 					<!-- Display -->
                     <button id="disp" class="calculator-display" style="grid-area: d;">
@@ -60,71 +60,6 @@
                                 <col span="1" style="width: 2em;">
                                 <col span="1" style="width: calc(100% - 2em);">
                              </colgroup>
-
-                            <tr>
-                                <td> 15:</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td> 14:</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td> 13:</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td> 12:</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td> 11:</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td> 10:</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td> 9:</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td> 8:</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td> 7:</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td> 6:</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td> 5:</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td> 4:</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td> 3:</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td> 2:</td>
-                                <td>42</td>
-                            </tr>
-                            <tr>
-                                <td> 1:</td>
-                                <td>-3.14159</td>
-                            </tr>
-                            <tr>
-                                <td>0:</td>
-                                <td>123456789</td>
-                            </tr>
                         </table>
                     </div>
                 </div>
