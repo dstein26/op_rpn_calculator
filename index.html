@@ -18,68 +18,97 @@
         <div class="main-content">
             <div class="calculator-body shadow-outset">
                 <div class="calculator-contents shadow-inset">
-                    <div class="button theme-bright" style="grid-area: AC;">AC</div>
-                    <div class="button theme-bright" style="grid-area: del;">C</div>
-                    <div class="button theme-numeric" style="grid-area: ud;"><img class="img-scale" src="assets/rotate-left-solid.svg"></div>
-                    <div class="button theme-numeric" style="grid-area: s;">sine</div>
-                    <div class="button theme-numeric" style="grid-area: c;">cosine</div>
-                    <div class="button theme-numeric" style="grid-area: t;">tan</div>
-                    <div class="button theme-numeric" style="grid-area: sqr;">sqrt</div>
-                    <div class="button theme-numeric" style="grid-area: inv;">inv</div>
-                    <div class="button theme-numeric" style="grid-area: sq;">sq</div>
-                    <div class="button theme-numeric" style="grid-area: pow;">^</div>
-                    <div class="button theme-numeric" style="grid-area: x;">x</div>
-                    <div class="button theme-numeric" style="grid-area: sev;">7</div>
-                    <div class="button theme-numeric" style="grid-area: ei;">8</div>
-                    <div class="button theme-numeric" style="grid-area: nin;">9</div>
-                    <div class="button theme-numeric" style="grid-area: div;">/</div>
-                    <div class="button theme-numeric" style="grid-area: four;">4</div>
-                    <div class="button theme-numeric" style="grid-area: fiv;">5</div>
-                    <div class="button theme-numeric" style="grid-area: six;">6</div>
-                    <div class="button theme-numeric" style="grid-area: pls;">+</div>
-                    <div class="button theme-numeric" style="grid-area: one;">1</div>
-                    <div class="button theme-numeric" style="grid-area: two;">2</div>
-                    <div class="button theme-numeric" style="grid-area: thr;">3</div>
-                    <div class="button theme-numeric" style="grid-area: min;">-</div>
-                    <div class="button theme-numeric" style="grid-area: dec;">.</div>
-                    <div class="button theme-numeric" style="grid-area: zer;">0</div>
-                    <div class="button theme-numeric" style="grid-area: e;"><img class="img-scale" style="transform: rotate(90deg);" src="assets/turn-up-solid.svg"></div>
-                    <div class="calculator-display" style="grid-area: d;">
-                        <table>
+                    <div id="ac" class="button theme-bright" style="grid-area: AC;">AC</div>
+                    <div id="del" class="button theme-bright" style="grid-area: del;">C</div>
+                    <div id="ud" class="button theme-bright" style="grid-area: ud;"><img class="img-scale" src="assets/rotate-left-solid.svg"></div>
+                    <div id="sin" class="button theme-numeric" style="grid-area: s;">sin(x)</div>
+                    <div id="cos" class="button theme-numeric" style="grid-area: c;">cos(x)</div>
+                    <div id="tan" class="button theme-numeric" style="grid-area: t;">tan(x)</div>
+                    <div id="sqrt" class="button theme-numeric" style="grid-area: sqr;"><img class="img-scale" src="assets/square-root-variable-solid.svg"></div>
+                    <div id="inv" class="button theme-numeric" style="grid-area: inv;">x<sup>-1</sup></div>
+                    <div id="sqr" class="button theme-numeric" style="grid-area: sq;">x<sup>2</sup></div>
+                    <div id="pow" class="button theme-numeric" style="grid-area: pow;">x<sup>y</sup></div>
+                    <div id="x" class="button theme-numeric" style="grid-area: x;"><img class="img-scale" src="assets/xmark-solid.svg"></div>
+                    <div id="n7" class="button theme-numeric" style="grid-area: n7;">7</div>
+                    <div id="n8" class="button theme-numeric" style="grid-area: n8;">8</div>
+                    <div id="n9" class="button theme-numeric" style="grid-area: n9;">9</div>
+                    <div id="div" class="button theme-numeric" style="grid-area: div;"><img class="img-scale" src="assets/divide-solid.svg"></div>
+                    <div id="n4" class="button theme-numeric" style="grid-area: n4;">4</div>
+                    <div id="n5" class="button theme-numeric" style="grid-area: n5;">5</div>
+                    <div id="n6" class="button theme-numeric" style="grid-area: n6;">6</div>
+                    <div id="pls" class="button theme-numeric" style="grid-area: pls;"><img class="img-scale" src="assets/plus-solid.svg"></div>
+                    <div id="n1" class="button theme-numeric" style="grid-area: n1;">1</div>
+                    <div id="n2" class="button theme-numeric" style="grid-area: n2;">2</div>
+                    <div id="n3" class="button theme-numeric" style="grid-area: n3;">3</div>
+                    <div id="min" class="button theme-numeric" style="grid-area: min;"><img class="img-scale" src="assets/minus-solid.svg"></div>
+                    <div id="dec" class="button theme-numeric" style="grid-area: dec;">.</div>
+                    <div id="n0" class="button theme-numeric" style="grid-area: n0;">0</div>
+                    <div id="ent" class="button theme-numeric" style="grid-area: e;"><img class="img-scale" style="transform: rotate(90deg);" src="assets/turn-up-solid.svg"></div>
+                    <div id="disp" class="calculator-display" style="grid-area: d;">
+                        <table id="outputTable">
+                            <colgroup>
+                                <col span="1" style="width: 2em;">
+                                <col span="1" style="width: calc(100% - 2em);">
+                             </colgroup>
+
                             <tr>
-                                <td>9:</td>
+                                <td> 15:</td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>8:</td>
+                                <td> 14:</td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>7:</td>
+                                <td> 13:</td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>6:</td>
+                                <td> 12:</td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>5:</td>
+                                <td> 11:</td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>4:</td>
+                                <td> 10:</td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>3:</td>
+                                <td> 9:</td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>2:</td>
+                                <td> 8:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td> 7:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td> 6:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td> 5:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td> 4:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td> 3:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td> 2:</td>
                                 <td>42</td>
                             </tr>
                             <tr>
-                                <td>1:</td>
+                                <td> 1:</td>
                                 <td>-3.14159</td>
                             </tr>
                             <tr>
