@@ -9,6 +9,9 @@
         <link rel="stylesheet" href="style.css">
 		<script src="https://kit.fontawesome.com/a59fa24bb2.js" crossorigin="anonymous"></script>
 		<link rel="icon" href="assets/calculator-solid.svg">
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital@0;1&display=swap');
+		</style>
     </head>
     <body>
         <script src="calculator.js" async defer></script>
@@ -18,33 +21,40 @@
         <div class="main-content">
             <div class="calculator-body shadow-outset">
                 <div class="calculator-contents shadow-inset">
-                    <div id="ac" class="button theme-bright" style="grid-area: AC;">AC</div>
-                    <div id="del" class="button theme-bright" style="grid-area: del;">C</div>
-                    <div id="ud" class="button theme-bright" style="grid-area: ud;"><img class="img-scale" src="assets/rotate-left-solid.svg"></div>
-                    <div id="sin" class="button theme-numeric" style="grid-area: s;">sin(x)</div>
-                    <div id="cos" class="button theme-numeric" style="grid-area: c;">cos(x)</div>
-                    <div id="tan" class="button theme-numeric" style="grid-area: t;">tan(x)</div>
-                    <div id="sqrt" class="button theme-numeric" style="grid-area: sqr;"><img class="img-scale" src="assets/square-root-variable-solid.svg"></div>
-                    <div id="inv" class="button theme-numeric" style="grid-area: inv;">x<sup>-1</sup></div>
-                    <div id="sqr" class="button theme-numeric" style="grid-area: sq;">x<sup>2</sup></div>
-                    <div id="pow" class="button theme-numeric" style="grid-area: pow;">x<sup>y</sup></div>
-                    <div id="x" class="button theme-numeric" style="grid-area: x;"><img class="img-scale" src="assets/xmark-solid.svg"></div>
-                    <div id="n7" class="button theme-numeric" style="grid-area: n7;">7</div>
-                    <div id="n8" class="button theme-numeric" style="grid-area: n8;">8</div>
-                    <div id="n9" class="button theme-numeric" style="grid-area: n9;">9</div>
-                    <div id="div" class="button theme-numeric" style="grid-area: div;"><img class="img-scale" src="assets/divide-solid.svg"></div>
-                    <div id="n4" class="button theme-numeric" style="grid-area: n4;">4</div>
-                    <div id="n5" class="button theme-numeric" style="grid-area: n5;">5</div>
-                    <div id="n6" class="button theme-numeric" style="grid-area: n6;">6</div>
-                    <div id="pls" class="button theme-numeric" style="grid-area: pls;"><img class="img-scale" src="assets/plus-solid.svg"></div>
-                    <div id="n1" class="button theme-numeric" style="grid-area: n1;">1</div>
-                    <div id="n2" class="button theme-numeric" style="grid-area: n2;">2</div>
-                    <div id="n3" class="button theme-numeric" style="grid-area: n3;">3</div>
-                    <div id="min" class="button theme-numeric" style="grid-area: min;"><img class="img-scale" src="assets/minus-solid.svg"></div>
-                    <div id="dec" class="button theme-numeric" style="grid-area: dec;">.</div>
-                    <div id="n0" class="button theme-numeric" style="grid-area: n0;">0</div>
-                    <div id="ent" class="button theme-numeric" style="grid-area: e;"><img class="img-scale" style="transform: rotate(90deg);" src="assets/turn-up-solid.svg"></div>
-                    <div id="disp" class="calculator-display" style="grid-area: d;">
+					<!-- Numeric Key Pad -->
+					<button id="n0" value=0 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n0;">0</button>
+					<button id="n1" value=1 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n1;">1</button>
+                    <button id="n2" value=2 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n2;">2</button>
+                    <button id="n3" value=3 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n3;">3</button>
+					<button id="n4" value=4 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n4;">4</button>
+                    <button id="n5" value=5 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n5;">5</button>
+                    <button id="n6" value=6 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n6;">6</button>
+					<button id="n7" value=7 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n7;">7</button>
+                    <button id="n8" value=8 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n8;">8</button>
+                    <button id="n9" value=9 onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: n9;">9</button>
+					<button id="dec" value='.' onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: dec;">.</button>
+					
+					<!-- Operators -->
+					<button id="x" class="button theme-numeric" style="grid-area: x;"><img src="assets/xmark-solid.svg"></button>
+                    <button id="button" class="button theme-numeric" style="grid-area: div;"><img src="assets/divide-solid.svg"></button>                    
+                    <button id="pls" class="button theme-numeric" style="grid-area: pls;"><img src="assets/plus-solid.svg"></button>                    
+                    <button id="min" class="button theme-numeric" style="grid-area: min;"><img src="assets/minus-solid.svg"></button>
+					<button id="sin" class="button theme-numeric" style="grid-area: s;">sin(x)</button>
+                    <button id="cos" class="button theme-numeric" style="grid-area: c;">cos(x)</button>
+                    <button id="tan" class="button theme-numeric" style="grid-area: t;">tan(x)</button>
+					<button id="sqrt" class="button theme-numeric" style="grid-area: sqr;"><img src="assets/square-root-variable-solid.svg"></button>
+                    <button id="inv" class="button theme-numeric" style="grid-area: inv;">x<sup>-1</sup></button>
+                    <button id="sqr" class="button theme-numeric" style="grid-area: sq;">x<sup>2</sup></button>
+                    <button id="pow" class="button theme-numeric" style="grid-area: pow;">x<sup>y</sup></button>
+					
+					<!-- Actions -->
+                    <button id="ac" onclick=clearOutputTable() class="button theme-bright" style="grid-area: AC;">AC</button>
+                    <button id="del" class="button theme-bright" style="grid-area: del;">C</button>
+                    <button id="ud" class="button theme-bright" style="grid-area: ud;"><img src="assets/rotate-left-solid.svg"></button>
+                    <button id="ent" class="button theme-bright" style="grid-area: e;"><img style="transform: rotate(90deg);" src="assets/turn-up-solid.svg"></button>
+					
+					<!-- Display -->
+                    <button id="disp" class="calculator-display" style="grid-area: d;">
                         <table id="outputTable">
                             <colgroup>
                                 <col span="1" style="width: 2em;">

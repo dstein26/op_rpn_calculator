@@ -5,7 +5,7 @@ const inputNums = [];
 
 // Get document elements
 const tableOutput = document.getElementById("outputTable");
-const nums = [document.getElementById("n0"),
+/* const nums = [document.getElementById("n0"),
     document.getElementById("n1"),
     document.getElementById("n2"),
     document.getElementById("n3"),
@@ -17,10 +17,10 @@ const nums = [document.getElementById("n0"),
     document.getElementById("n9")];
 
 // Set up events
-nums.forEach(function(b, n) { b.addEventListener("click", function() { inputDigit(n); } )});
+nums.forEach(function(b, n) { b.addEventListener("click", function() { inputDigit(n); } )}); */
 
 // Setup the calculator
-clearOutputTable();
+/* clearOutputTable(); */
 
 // Functions
 function clearOutputTable()
@@ -33,6 +33,16 @@ function clearOutputTable()
 
 function inputDigit(d)
 {
-    if()
-    tableOutput.rows[tableOutput.rows.length - 1].cells[1].innerHTML += d;
+	const inputCell = tableOutput.rows[tableOutput.rows.length - 1].cells[1];
+	
+	if ((d == ".") && (inputCell.innerHTML == ""))
+	{
+		d = "0.";
+	}
+	else if ((d == ".") && (inputCell.innerHTML.includes(".")))
+	{
+		return;
+	}
+	
+    inputCell.innerHTML += d;
 }

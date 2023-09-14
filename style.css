@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Courier+Prime");
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
 
 html, body
 {
@@ -9,8 +9,9 @@ html, body
     flex-direction: column;
     height: 100%;
     box-sizing: border-box;
+	font-family: 'Courier Prime', monospace;
 
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
 }
 
 header
@@ -48,6 +49,8 @@ footer
     width: auto;
     /* max-width: 500px; */
     min-height: 500px;
+	font-family: 'Courier Prime', monospace;
+	font-size:larger;
 }
 
 .calculator-contents
@@ -58,15 +61,15 @@ footer
     width: 100%;
     height: 100%;
     border-radius: inherit;
-    grid-template:  "AC     del ud  ud  d   d   d"
-                    "s      c   t   sqr d   d   d"
-                    "inv    sq  pow x   d   d   d"
-                    "n7     n8  n9  div d   d   d"
-                    "n4     n5  n6  pls d   d   d"
-                    "n1     n2  n3  min d   d   d"
-                    "dec    n0  e   e   d   d   d";
-    grid-template-columns: repeat(7, 5em);
-    grid-template-rows: repeat(7, 5em);
+    grid-template:  "AC     del ud  ud  d"
+                    "s      c   t   sqr d"
+                    "inv    sq  pow x   d"
+                    "n7     n8  n9  div d"
+                    "n4     n5  n6  pls d"
+                    "n1     n2  n3  min d"
+                    "dec    n0  e   e   d";
+    grid-template-columns: repeat(4, 4em) 12em;
+    grid-template-rows: repeat(7, 4em);
     padding: 15px;
     gap:2px;
 }
@@ -90,6 +93,8 @@ footer
     background-color: rgb(231, 231, 231);
     border-radius: 5px;
     box-shadow: inset 0 0 2px rgb(160,160, 160);
+	font-family: Inherit; 
+	font-size: Inherit;
 
 }
 
@@ -105,13 +110,17 @@ footer
     align-items: center;
     text-align: center;
 	border: 1px solid black;
-    height:5em;
     border-radius:10px;
+	font-family: Inherit; 
+	font-size: Inherit;
+	padding:5px;
+	
 }
 
-.img-scale
+.button img
 {
-    scale:40%;
+    /* scale:40%; */
+	height:90%;
 }
 
 table
