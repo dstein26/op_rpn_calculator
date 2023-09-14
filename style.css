@@ -48,7 +48,7 @@ footer
     /* max-width: 500px; */
     min-height: 500px;
 	font-family: 'Courier Prime', monospace;
-	font-size:larger;
+	font-size:initial;
 }
 
 .calculator-contents
