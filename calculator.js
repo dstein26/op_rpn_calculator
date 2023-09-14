@@ -96,6 +96,11 @@ function sendToStack()	// Send value from input cell to the stack
 	fillTable();
 }
 
+function enterToInputCell(a)
+{
+	tableOutput.rows[gStackSize-1].cells[1].innerHTML = a;
+}
+
 function dualOperations(a,b,op)	// Perform an operation on
 {
 	switch(op)
@@ -134,9 +139,10 @@ function operations(op)
 	if(dualOps.includes(op))
 	{
 		a = inputNums.pop();
-		inputNums.push(dualOperations(a,b,op));
+		let result = dualOperations(a,b,op);
 		clearOutputTable();
 		fillTable();
+		enterToInputCell(result);
 	}
 	
 }
