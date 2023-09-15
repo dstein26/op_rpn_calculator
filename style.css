@@ -42,11 +42,13 @@ footer
 
 .calculator-body
 {
+    /* display:flex;
+    flex:1; */
     background-color: rgb(100, 100, 100);
     border-radius: 20px;
     width: auto;
-    /* max-width: 500px; 
-    min-height: 500px; */
+    max-width: 100%; 
+    max-height: 100%;
 	font-family: 'Courier Prime', monospace;
 	font-size:initial;
 }
@@ -66,8 +68,8 @@ footer
                     "n4     n5  n6  pls d"
                     "n1     n2  n3  min d"
                     "dec    n0  e   e   d";
-    grid-template-columns: repeat(4, 2.5em) 12em;
-    grid-template-rows: repeat(7, 3em);
+    /* grid-template-columns: repeat(4, 2.5em) 12em;
+    grid-template-rows: repeat(7, 3em); */
     padding: 15px;
     gap:2px;
 }
@@ -92,6 +94,7 @@ footer
 	font-family: Inherit; 
 	font-size: Inherit;
 	padding: 5px;
+    min-width: 12em;
 }
 
 /* .calculator-display > *
@@ -111,13 +114,15 @@ footer
 	font-family: Inherit; 
 	font-size: Inherit;
 	padding:5px;
-	
+	min-width:3em;
+    height:4em;
 }
 
 .button img
 {
     /* scale:40%; */
-	height:90%;
+	max-width: 100%;
+    max-height: 100%;
 }
 
 table

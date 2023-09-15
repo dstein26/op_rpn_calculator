@@ -63,7 +63,7 @@ function fillTable()	// Fill the table with the values from the stack
 	clearOutputTable(); // Using this to clear values that have been popped from the stack
 	for(let ii = inputNums.length-1; ii >= 0; ii--)
 	{
-		tableOutput.rows[gStackSize + ii - inputNums.length-1].cells[1].innerHTML = inputNums[ii];
+		tableOutput.rows[gStackSize + ii - inputNums.length-1].cells[1].innerHTML = String(inputNums[ii]).substring(0,16);
 	}
 }
 
