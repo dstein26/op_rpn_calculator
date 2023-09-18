@@ -11,6 +11,7 @@ const tableOutput = document.getElementById("outputTable");
 
 // Setup the calculator
 const gInputCell = generateTable();	// Generates output table
+document.addEventListener("keydown", (e) => keyboardEvent(e));
 
 // Functions
 function generateTable()	// Programatically generate the table for displaying input stack
@@ -195,4 +196,34 @@ function operations(op)
 	fillTable();
 	enterToInputCell(result);
 	
+}
+
+function keyboardEvent(e)
+{
+	const operators = ["+", "-", "*", "/", "^"];
+	const key = e.key;
+
+	console.log(key);
+
+	if(isInt(key))
+	{
+		inputDigit(key);
+	}
+	else if(key == "Enter")
+	{
+		sendToStack();
+	}
+	else if(key == "Escape")
+	{
+		clearAll();
+	}
+	else if(operators.includes(key))
+	{
+		operations(key);
+	}
+}
+
+function isInt(n)
+{
+	return !isNaN(parseInt(n))
 }
