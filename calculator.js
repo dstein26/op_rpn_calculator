@@ -62,6 +62,11 @@ function clearOutputTable()		// Clear the table n = number of rows to clear
         tableOutput.rows[ii].cells[1].innerHTML = "";
 		tableOutput.rows[ii].cells[3].innerHTML = "";
     }
+	clearInputCell();
+}
+
+function clearInputCell()
+{
 	gInputCell.innerHTML = "";
 }
 
