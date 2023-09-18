@@ -96,12 +96,15 @@ footer
     min-height: var(--displayHeight);
     margin-bottom: 5px;
     border-radius: 5px;
+    display: flex;
+    align-items: end;
 }
 
 .calculator-display p
 {
     margin: 0;
     padding: 0;
+    overflow: scroll;
 }
 
 .button-container
@@ -160,15 +163,19 @@ td
     text-align: left;
 }
 
-.calculator-display td:first-child, .calculator-display td:nth-child(3)
+.calculator-display td:first-child
 {
     width:1em;
 }
 
-.calculator-display td:nth-child(2), .calculator-display td:nth-child(4)
+.calculator-display td:nth-child(2)
 {
-    /* Not calculating properly with percents. Hard-code for now */
-    width:45%;
+    text-align: right;
+}
+
+table tr
+{
+    height: 2em;
 }
 
 table
@@ -176,7 +183,7 @@ table
     
     table-layout: auto;
     width: 100%;
-	height: 100%;
+	height: auto;
     
 }
 

@@ -17,6 +17,7 @@ document.addEventListener("keydown", (e) => keyboardEvent(e));
 function generateTable()	// Programatically generate the table for displaying input stack
 {	
 	/* Create template for each row added */
+	/*
 	const tableRow = document.createElement("tr");
 	tableRow.appendChild(document.createElement("td"));
 	tableRow.appendChild(document.createElement("td"));
@@ -31,13 +32,13 @@ function generateTable()	// Programatically generate the table for displaying in
 		row.cells[2].innerHTML = ii + ".";
 		row.cells[3].innerHTML = "" // ii/100
 	}
+	*/
 
 	/* Last row of the table is the input area and is different from rest of table */
-	const inputRow = tableOutput.insertRow(gStackSize/2); // Stack size must be even for this
+	const inputRow = tableOutput.insertRow(0); // Stack size must be even for this
 	const cell1 = inputRow.insertCell(0);
 	cell1.innerHTML = ":"
 	const inputCell = inputRow.insertCell(1);
-	inputCell.colSpan = 3;
 	inputCell.innerHTML;
 
 	return inputCell;	// Return the input cell for global access
@@ -57,12 +58,11 @@ function clearStack() // Clear the stack
 
 function clearOutputTable()		// Clear the table n = number of rows to clear
 {
-    for(let ii = 0; ii < tableOutput.rows.length-1; ii++)
+    for(let ii = 0; ii < tableOutput.rows.length; ii++)
     {
         tableOutput.rows[ii].cells[1].innerHTML = "";
-		tableOutput.rows[ii].cells[3].innerHTML = "";
     }
-	clearInputCell();
+	// clearInputCell();
 }
 
 function clearInputCell()
@@ -72,13 +72,31 @@ function clearInputCell()
 
 function fillTable()	// Fill the table with the values from the stack
 {
-
 	clearOutputTable(); // Using this to clear values that have been popped from the stack
-	for(let ii = 0; ii < gInputNums.length; ii++)
+	let tr = tableOutput.rows.length - 2;
+
+	for(let ii = gInputNums.length-1; ii >= 0; ii--)
 	{
-		const col = 1 + 2 * (ii%2);
-		const row = 7 - Math.floor(ii / 2);
-		tableOutput.rows[row].cells[col].innerHTML = gInputNums.at(-(ii+1));
+		if(tr >= 0)
+		{
+			tableOutput.rows[tr].cells[1].innerHTML = gInputNums[ii];
+		}
+		else
+		{
+			const NewRow = tableOutput.insertRow(0);
+			const cell1 = NewRow.insertCell(0);
+			const cell2 = NewRow.insertCell(1);
+
+			cell1.innerHTML = tableOutput.rows.length-1 + ":";
+			cell2.innerHTML = gInputNums[ii];
+		}
+
+		tr--;
+	}
+
+	while(tableOutput.rows.length > gInputNums.length+1)
+	{
+		tableOutput.deleteRow(0);
 	}
 
 }
