@@ -76,7 +76,7 @@ footer
     /* display:grid;
     grid-template:  "d      d   d   d "
                     "AC     del ud  ud"
-                    "s      c   t   sqr"
+                    "s      c   t   sqrt"
                     "inv    sq  pow x  "
                     "n7     n8  n9  div"
                     "n4     n5  n6  pls"
@@ -103,7 +103,9 @@ footer
 {
     background-color: var(--displayBGColor);
     width:100%;
-    height:var(--displayHeight);
+    /* height:var(--displayHeight); */
+    height: calc(50% - 5px);
+    min-height: var(--displayHeight);
     margin-bottom: 5px;
     border-radius: 5px;
     /*padding:1px;*/
@@ -120,12 +122,16 @@ footer
     border: 2px solid orange;
     background-color: rgb(255, 247, 247);
     width:100%;
+    /* 
+    This height calculation seems to still work
+    WHY???
+    */
     height: calc(100% - var(--displayHeight) - 5px);
     min-height: calc(7rem);
     border-radius: 5px;
     display:grid;
     grid-template:  "AC     del ud  ud"
-                    "s      c   t   sqr"
+                    "s      c   t   sqrt"
                     "inv    sq  pow x  "
                     "n7     n8  n9  div"
                     "n4     n5  n6  pls"
@@ -151,12 +157,6 @@ footer
     max-height: 100%;
 }
 
-table
-{
-    width: 100%;
-	height: 100%;
-}
-
 
 table, td
 {
@@ -175,6 +175,20 @@ td
     width:1em;
 }
 
+.calculator-display td:nth-child(2), .calculator-display td:nth-child(4)
+{
+    /* Not calculating properly with percents. Hard-code for now */
+    width:45%;
+}
+
+table
+{
+    
+    table-layout: auto;
+    width: 100%;
+	height: 100%;
+    
+}
 
 .theme-numeric
 {

@@ -58,33 +58,35 @@ function clearStack() // Clear the stack
 
 function clearOutputTable()		// Clear the table n = number of rows to clear
 {
-	/*
-    for(let ii = 0; ii < gStackSize; ii++)
+    for(let ii = 0; ii < tableOutput.rows.length-1; ii++)
     {
         tableOutput.rows[ii].cells[1].innerHTML = "";
+		tableOutput.rows[ii].cells[3].innerHTML = "";
     }
-	*/
+	gInputCell.innerHTML = "";
 }
 
 function fillTable()	// Fill the table with the values from the stack
 {
-	/*
+
 	clearOutputTable(); // Using this to clear values that have been popped from the stack
-	for(let ii = inputNums.length-1; ii >= 0; ii--)
+	for(let ii = 0; ii < inputNums.length; ii++)
 	{
-		tableOutput.rows[gStackSize + ii - inputNums.length-1].cells[1].innerHTML = String(inputNums[ii]).substring(0,16);
+		const col = 1 + 2 * (ii%2);
+		const row = 7 - Math.floor(ii / 2);
+		tableOutput.rows[row].cells[col].innerHTML = inputNums.at(-(ii+1));
 	}
-	*/
+
 }
 
 function inputDigit(d)	// Input digits into the input cell of the display
 {
 	
-	if ((d == ".") && (inputCell.innerHTML == ""))
+	if ((d == ".") && (gInputCell.innerHTML == ""))
 	{
 		d = "0.";
 	}
-	else if ((d == ".") && (inputCell.innerHTML.includes(".")))
+	else if ((d == ".") && (gInputCell.innerHTML.includes(".")))
 	{
 		return;
 	}
@@ -92,13 +94,12 @@ function inputDigit(d)	// Input digits into the input cell of the display
 }
 
 function sendToStack()	// Send value from input cell to the stack
-{
-	const inputCell = tableOutput.rows[gStackSize-1].cells[1];
-	
-	if((inputNums.length < gStackSize-2) && !(inputCell.innerHTML == ""))
+{	
+
+	if((inputNums.length < gStackSize-2) && !(gInputCell.innerHTML == ""))
 	{
-		inputNums.push(parseFloat(inputCell.innerHTML));
-		inputCell.innerHTML = "";
+		inputNums.push(parseFloat(gInputCell.innerHTML));
+		gInputCell.innerHTML = "";
 	}
 	
 	fillTable();
@@ -106,38 +107,76 @@ function sendToStack()	// Send value from input cell to the stack
 
 function enterToInputCell(a)
 {
-	tableOutput.rows[gStackSize-1].cells[1].innerHTML = a;
+	gInputCell.innerHTML = a;
 }
 
 function dualOperations(a,b,op)	// Perform an operation on
 {
+	let res = -42;
 	switch(op)
 	{
 		case "+":
-			return a+b
+			res = a+b;
+			break;
 		case "-":
-			return a-b
+			res =  a-b;
+			break;
 		case "*":
-			return a*b
+			res = a*b;
+			break;
 		case "/":
-			return a/b
+			res = a/b;
+			break;
 		case "^":
-			return a^b
+			res = Math.pow(a, b);
+			break;
 		default:
-			console.log("Invalid math operation")
+			console.log("Invalid dual operation: " + op)
 	}
+
+	return res;
+}
+
+function singleOperations(a, op)
+{
+	let res = -42;
+
+	switch(op)
+	{
+		case "s":
+			res = Math.sin(a);
+			break;
+		case "c":
+			res = Math.cos(a);
+			break;
+		case "t":
+			res = Math.tan(a);
+			break;
+		case "sqrt":
+			res = Math.sqrt(a);
+			break;
+		case "sq":
+			res = Math.pow(a, 2);
+			break;
+		default:
+			console.log("Invalid single operator: " + op)
+	}
+
+	return res;
 }
 
 function operations(op)
 {
 	const dualOps = ["+", "-", "*", "/", "^"];
+	const singleOps = ["s", "c", "t", "sqrt", "sq"];
 	let b = 0.0;
 	let a = 0.0;
+	let result = -42.0
 	
 	// WARNING: Not yet protecting against nothing in the stack
-	if (!(tableOutput.rows[gStackSize-1].cells[1].innerHTML == ""))
+	if (!(gInputCell.innerHTML == ""))
 	{
-		b = parseFloat(tableOutput.rows[gStackSize-1].cells[1].innerHTML);
+		b = parseFloat(gInputCell.innerHTML);
 	}
 	else
 	{
@@ -147,10 +186,15 @@ function operations(op)
 	if(dualOps.includes(op))
 	{
 		a = inputNums.pop();
-		let result = dualOperations(a,b,op);
-		clearOutputTable();
-		fillTable();
-		enterToInputCell(result);
+		result = dualOperations(a,b,op);
 	}
+	else if(singleOps.includes(op))
+	{
+		result = singleOperations(b, op);
+	}
+
+	clearOutputTable();
+	fillTable();
+	enterToInputCell(result);
 	
 }
