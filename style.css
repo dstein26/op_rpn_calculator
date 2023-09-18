@@ -1,3 +1,16 @@
+:root
+{
+    --bodyBGColor: dimgrey;
+    --displayBGColor: rgb(230, 226, 226);
+    
+    --edgeRadius: 10px;
+    --aspectRatio: .75;
+
+    --displayHeight: calc(10 * 1.5rem);
+    --nColumns: 4;
+    --nRows: 7;
+}
+
 html, body
 {
     background-color: white;
@@ -8,8 +21,6 @@ html, body
     height: 100%;
     box-sizing: border-box;
 	font-family: 'Courier Prime', monospace;
-
-    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
 }
 
 header
@@ -42,36 +53,40 @@ footer
 
 .calculator-body
 {
-    /* display:flex;
-    flex:1; */
-    background-color: rgb(100, 100, 100);
-    border-radius: 20px;
-    width: auto;
-    max-width: 100%; 
+    display:flex;
+    flex:1;
+    height:auto;
+    max-width: 100%;
     max-height: 100%;
-	font-family: 'Courier Prime', monospace;
-	font-size:initial;
+    aspect-ratio: var(--aspectRatio);
+    background-color: purple;
+    border-radius: var(--edgeRadius);
+    
 }
 
 .calculator-contents
 {
+    height:100%;
+    width:100%;
+    aspect-ratio: inherit;
+    border-radius: var(--edgeRadius);
+    padding:10px;
     box-sizing: border-box;
-    display:grid;
-    /* grid-template-columns: repeat(7, 1fr); */
-    width: 100%;
-    height: 100%;
-    border-radius: inherit;
-    grid-template:  "AC     del ud  ud  d"
-                    "s      c   t   sqr d"
-                    "inv    sq  pow x   d"
-                    "n7     n8  n9  div d"
-                    "n4     n5  n6  pls d"
-                    "n1     n2  n3  min d"
-                    "dec    n0  e   e   d";
-    /* grid-template-columns: repeat(4, 2.5em) 12em;
-    grid-template-rows: repeat(7, 3em); */
-    padding: 15px;
-    gap:2px;
+    background-color: var(--bodyBGColor);
+    /* display:grid;
+    grid-template:  "d      d   d   d "
+                    "AC     del ud  ud"
+                    "s      c   t   sqr"
+                    "inv    sq  pow x  "
+                    "n7     n8  n9  div"
+                    "n4     n5  n6  pls"
+                    "n1     n2  n3  min"
+                    "dec    n0  e   e";
+    gap:0px;
+    */
+    display:flex;
+    flex-direction: column;
+    
 }
 
 .shadow-inset
@@ -86,41 +101,48 @@ footer
 
 .calculator-display
 {
-    display:flex;
-    justify-content: left;
-    background-color: rgb(231, 231, 231);
+    background-color: var(--displayBGColor);
+    width:100%;
+    height:var(--displayHeight);
+    margin-bottom: 5px;
     border-radius: 5px;
-    box-shadow: inset 0 0 2px rgb(160,160, 160);
-	font-family: Inherit; 
-	font-size: Inherit;
-	padding: 5px;
-    min-width: 12em;
 }
 
-/* .calculator-display > *
+.calculator-display p
 {
-    margin: 5px 2px 5px 2px;
+    margin: 0;
+    padding: 0;
 }
-*/
+
+.button-container
+{
+    border: 2px solid orange;
+    width:100%;
+    height: calc(100% - var(--displayHeight) - 5px);
+    min-height: calc(7rem);
+    border-radius: 5px;
+    display:grid;
+    grid-template:  "AC     del ud  ud"
+                    "s      c   t   sqr"
+                    "inv    sq  pow x  "
+                    "n7     n8  n9  div"
+                    "n4     n5  n6  pls"
+                    "n1     n2  n3  min"
+                    "dec    n0  e   e";
+    gap:4px;
+    grid-template-rows: repeat(7, minmax(0, 1fr));
+}
 
 .button
 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-	border: 1px solid black;
-    border-radius:10px;
-	font-family: Inherit; 
-	font-size: Inherit;
-	padding:5px;
-	min-width:3em;
-    height:4em;
+    border:none;
+    font-family: 'Courier Prime', monospace;
+    padding:0;
+    min-height:1rem;
 }
 
 .button img
 {
-    /* scale:40%; */
 	max-width: 100%;
     max-height: 100%;
 }
@@ -141,13 +163,16 @@ table, td
 
 td
 {
-    text-align: right;
+    text-align: left;
 }
 
-.blank
+td:first-child
 {
-    background-color: inherit;
-    aspect-ratio: 1 / 1;
+    width:2em;
+}
+td:nth-child(3)
+{
+    width:2em
 }
 
 .theme-numeric

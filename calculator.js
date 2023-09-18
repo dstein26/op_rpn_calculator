@@ -7,19 +7,7 @@ const gStackSize = 16;
 
 // Get document elements
 const tableOutput = document.getElementById("outputTable");
-/* const nums = [document.getElementById("n0"),
-    document.getElementById("n1"),
-    document.getElementById("n2"),
-    document.getElementById("n3"),
-    document.getElementById("n4"),
-    document.getElementById("n5"),
-    document.getElementById("n6"),
-    document.getElementById("n7"),
-    document.getElementById("n8"),
-    document.getElementById("n9")];
 
-// Set up events
-nums.forEach(function(b, n) { b.addEventListener("click", function() { inputDigit(n); } )}); */
 
 // Setup the calculator
 generateTable();
@@ -27,16 +15,30 @@ generateTable();
 // Functions
 function generateTable()	// Programatically generate the table for displaying input stack
 {
+	tableOutput.innerHTML = "<p></p>"
+	
 	const tableRow = document.createElement("tr");
 	tableRow.appendChild(document.createElement("td"));
 	tableRow.appendChild(document.createElement("td"));
+	tableRow.appendChild(document.createElement("td"));
+	tableRow.appendChild(document.createElement("td"));
+
 	
-	for(let ii = gStackSize-1; ii >= 0; ii--)
+
+	for(let ii = (gStackSize); ii >= 1; ii = ii-2)
 	{
 		let row = tableOutput.appendChild(tableRow.cloneNode(true));
-		row.cells[0].innerHTML = ii + ".";
-		row.cells[1].innerHTML = "";
+		row.cells[0].innerHTML = ii-1 + ".";
+		row.cells[1].innerHTML = "" //ii*100;
+		row.cells[2].innerHTML = ii + ".";
+		row.cells[3].innerHTML = "" // ii/100
 	}
+
+	const inputRow = tableOutput.insertRow(8);
+	const inputCell = inputRow.insertCell(0);
+	inputCell.colSpan = 4;
+	inputCell.innerHTML = ":"
+	
 }
 
 function clearAll() // Clear stack and output table
@@ -52,23 +54,29 @@ function clearStack() // Clear the stack
 
 function clearOutputTable()		// Clear the table n = number of rows to clear
 {
+	/*
     for(let ii = 0; ii < gStackSize; ii++)
     {
         tableOutput.rows[ii].cells[1].innerHTML = "";
     }
+	*/
 }
 
 function fillTable()	// Fill the table with the values from the stack
 {
+	/*
 	clearOutputTable(); // Using this to clear values that have been popped from the stack
 	for(let ii = inputNums.length-1; ii >= 0; ii--)
 	{
 		tableOutput.rows[gStackSize + ii - inputNums.length-1].cells[1].innerHTML = String(inputNums[ii]).substring(0,16);
 	}
+	*/
 }
 
 function inputDigit(d)	// Input digits into the input cell of the display
 {
+	const inputCell = tableOutput.firstElementChild;
+	/*
 	const inputCell = tableOutput.rows[tableOutput.rows.length - 1].cells[1];
 	
 	if ((d == ".") && (inputCell.innerHTML == ""))
@@ -79,7 +87,7 @@ function inputDigit(d)	// Input digits into the input cell of the display
 	{
 		return;
 	}
-	
+	*/
     inputCell.innerHTML += d;
 }
 
