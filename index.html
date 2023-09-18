@@ -43,23 +43,23 @@
                         <button value='.' onclick=inputDigit(this.value) class="button theme-numeric" style="grid-area: dec;">.</button>
                         
                         <!-- Operators -->
-                        <button value="*" onclick=operations(this.value) class="button theme-numeric" style="grid-area: x;"><img src="assets/xmark-solid.svg"></button>
-                        <button value="/" onclick=operations(this.value) class="button theme-numeric" style="grid-area: div;"><img src="assets/divide-solid.svg"></button>                    
-                        <button value="+" onclick=operations(this.value) class="button theme-numeric" style="grid-area: pls;"><img src="assets/plus-solid.svg"></button>                    
-                        <button value="-" onclick=operations(this.value) class="button theme-numeric" style="grid-area: min;"><img src="assets/minus-solid.svg"></button>
-                        <button value="s" onclick=operations(this.value) class="button theme-numeric" style="grid-area: s;">sin</button>
-                        <button value="c" onclick=operations(this.value) class="button theme-numeric" style="grid-area: c;">cos</button>
-                        <button value="t" onclick=operations(this.value) class="button theme-numeric" style="grid-area: t;">tan</button>
-                        <button value="sqrt" onclick=operations(this.value) class="button theme-numeric" style="grid-area: sqrt;"><img src="assets/square-root-variable-solid.svg"></button>
-                        <button value="inv" onclick=operations(this.value) class="button theme-numeric" style="grid-area: inv;">x<sup>-1</sup></button>
-                        <button value="sq" onclick=operations(this.value) class="button theme-numeric" style="grid-area: sq;">x<sup>2</sup></button>
-                        <button value="^" onclick=operations(this.value) class="button theme-numeric" style="grid-area: pow;">x<sup>y</sup></button>
+                        <button value="*" onclick=operations(this.value) class="button theme-op" style="grid-area: x;"><img src="assets/xmark-solid.svg"></button>
+                        <button value="/" onclick=operations(this.value) class="button theme-op" style="grid-area: div;"><img src="assets/divide-solid.svg"></button>                    
+                        <button value="+" onclick=operations(this.value) class="button theme-op" style="grid-area: pls;"><img src="assets/plus-solid.svg"></button>                    
+                        <button value="-" onclick=operations(this.value) class="button theme-op" style="grid-area: min;"><img src="assets/minus-solid.svg"></button>
+                        <button value="s" onclick=operations(this.value) class="button theme-op" style="grid-area: s;">sin</button>
+                        <button value="c" onclick=operations(this.value) class="button theme-op" style="grid-area: c;">cos</button>
+                        <button value="t" onclick=operations(this.value) class="button theme-op" style="grid-area: t;">tan</button>
+                        <button value="sqrt" onclick=operations(this.value) class="button theme-op" style="grid-area: sqrt;"><img src="assets/square-root-variable-solid.svg"></button>
+                        <button value="inv" onclick=operations(this.value) class="button theme-op" style="grid-area: inv;">x<sup>-1</sup></button>
+                        <button value="sq" onclick=operations(this.value) class="button theme-op" style="grid-area: sq;">x<sup>2</sup></button>
+                        <button value="^" onclick=operations(this.value) class="button theme-op" style="grid-area: pow;">x<sup>y</sup></button>
                         
                         <!-- Actions -->
-                        <button id="ac" onclick=clearAll() class="button theme-bright" style="grid-area: AC;">AC</button>
-                        <button id="del" class="button theme-bright" style="grid-area: del;">C</button>
-                        <button id="ud" class="button theme-bright" style="grid-area: ud;"><img src="assets/rotate-left-solid.svg"></button>
-                        <button id="ent" onclick=sendToStack() class="button theme-bright" style="grid-area: e;"><img style="transform: rotate(90deg);" src="assets/turn-up-solid.svg"></button>
+                        <button id="ac" onclick=clearAll() class="button theme-action" style="grid-area: AC;">AC</button>
+                        <button id="del" class="button theme-action" style="grid-area: del;">C</button>
+                        <button id="ud" class="button theme-action" style="grid-area: ud;"><img src="assets/rotate-left-solid.svg"></button>
+                        <button id="ent" onclick=sendToStack() class="button theme-action" style="grid-area: e;"><img style="transform: rotate(90deg);" src="assets/turn-up-solid.svg"></button>
                     </div>
                 
                 </div> <!-- Calcualtor Contents Div -->

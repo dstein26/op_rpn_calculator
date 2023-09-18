@@ -1,7 +1,7 @@
 console.log("Starting Calculator");
 
 // Constants
-const inputNums = [];	//Number stack for calculations
+const gInputNums = [];	//Number stack for calculations
 const gStackSize = 16;
 
 
@@ -10,20 +10,17 @@ const tableOutput = document.getElementById("outputTable");
 
 
 // Setup the calculator
-const gInputCell = generateTable();
+const gInputCell = generateTable();	// Generates output table
 
 // Functions
 function generateTable()	// Programatically generate the table for displaying input stack
-{
-	tableOutput.innerHTML = "<p></p>"
-	
+{	
+	/* Create template for each row added */
 	const tableRow = document.createElement("tr");
 	tableRow.appendChild(document.createElement("td"));
 	tableRow.appendChild(document.createElement("td"));
 	tableRow.appendChild(document.createElement("td"));
 	tableRow.appendChild(document.createElement("td"));
-
-	
 
 	for(let ii = (gStackSize); ii >= 1; ii = ii-2)
 	{
@@ -34,14 +31,15 @@ function generateTable()	// Programatically generate the table for displaying in
 		row.cells[3].innerHTML = "" // ii/100
 	}
 
-	const inputRow = tableOutput.insertRow(8);
+	/* Last row of the table is the input area and is different from rest of table */
+	const inputRow = tableOutput.insertRow(gStackSize/2); // Stack size must be even for this
 	const cell1 = inputRow.insertCell(0);
 	cell1.innerHTML = ":"
 	const inputCell = inputRow.insertCell(1);
 	inputCell.colSpan = 3;
 	inputCell.innerHTML;
 
-	return inputCell;
+	return inputCell;	// Return the input cell for global access
 	
 }
 
@@ -53,7 +51,7 @@ function clearAll() // Clear stack and output table
 
 function clearStack() // Clear the stack
 {
-	inputNums.length = 0;
+	gInputNums.length = 0;
 }
 
 function clearOutputTable()		// Clear the table n = number of rows to clear
@@ -70,11 +68,11 @@ function fillTable()	// Fill the table with the values from the stack
 {
 
 	clearOutputTable(); // Using this to clear values that have been popped from the stack
-	for(let ii = 0; ii < inputNums.length; ii++)
+	for(let ii = 0; ii < gInputNums.length; ii++)
 	{
 		const col = 1 + 2 * (ii%2);
 		const row = 7 - Math.floor(ii / 2);
-		tableOutput.rows[row].cells[col].innerHTML = inputNums.at(-(ii+1));
+		tableOutput.rows[row].cells[col].innerHTML = gInputNums.at(-(ii+1));
 	}
 
 }
@@ -96,9 +94,9 @@ function inputDigit(d)	// Input digits into the input cell of the display
 function sendToStack()	// Send value from input cell to the stack
 {	
 
-	if((inputNums.length < gStackSize-2) && !(gInputCell.innerHTML == ""))
+	if((gInputNums.length < gStackSize-2) && !(gInputCell.innerHTML == ""))
 	{
-		inputNums.push(parseFloat(gInputCell.innerHTML));
+		gInputNums.push(parseFloat(gInputCell.innerHTML));
 		gInputCell.innerHTML = "";
 	}
 	
@@ -110,7 +108,7 @@ function enterToInputCell(a)
 	gInputCell.innerHTML = a;
 }
 
-function dualOperations(a,b,op)	// Perform an operation on
+function dualOperations(a,b,op)	// Perform an operator that uses two arguements
 {
 	let res = -42;
 	switch(op)
@@ -137,7 +135,7 @@ function dualOperations(a,b,op)	// Perform an operation on
 	return res;
 }
 
-function singleOperations(a, op)
+function singleOperations(a,op) // Perform operators that use only 1 arguement
 {
 	let res = -42;
 
@@ -180,12 +178,12 @@ function operations(op)
 	}
 	else
 	{
-		b = inputNums.pop();
+		b = gInputNums.pop();
 	}
 	
 	if(dualOps.includes(op))
 	{
-		a = inputNums.pop();
+		a = gInputNums.pop();
 		result = dualOperations(a,b,op);
 	}
 	else if(singleOps.includes(op))

@@ -73,17 +73,6 @@ footer
     padding:10px;
     box-sizing: border-box;
     background-color: var(--bodyBGColor);
-    /* display:grid;
-    grid-template:  "d      d   d   d "
-                    "AC     del ud  ud"
-                    "s      c   t   sqrt"
-                    "inv    sq  pow x  "
-                    "n7     n8  n9  div"
-                    "n4     n5  n6  pls"
-                    "n1     n2  n3  min"
-                    "dec    n0  e   e";
-    gap:0px;
-    */
     display:flex;
     flex-direction: column;
     
@@ -103,12 +92,10 @@ footer
 {
     background-color: var(--displayBGColor);
     width:100%;
-    /* height:var(--displayHeight); */
     height: calc(50% - 5px);
     min-height: var(--displayHeight);
     margin-bottom: 5px;
     border-radius: 5px;
-    /*padding:1px;*/
 }
 
 .calculator-display p
@@ -149,12 +136,15 @@ footer
     min-height:1rem;
     border-radius: 2px;
     font-size:3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button img
 {
-	max-width: 100%;
-    max-height: 100%;
+	max-width: 75%;
+    max-height: 75%;
 }
 
 
@@ -200,12 +190,22 @@ table
     background-color: #e4e9e8;
 }
 
-.theme-bright
+.theme-action
 {
-	background-color: #cbb10b;
+	background-color: rgb(245, 186, 76);
 }
 
-.theme-bright:hover
+.theme-action:hover
 {
-	background-color: #e7dfab;
+	background-color: rgb(250, 216, 152);
+}
+
+.theme-op
+{
+    background-color: rgb(108, 192, 231);
+}
+
+.theme-op:hover
+{
+    background-color: rgb(176, 230, 255);
 }
