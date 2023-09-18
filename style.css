@@ -106,6 +106,7 @@ footer
     height:var(--displayHeight);
     margin-bottom: 5px;
     border-radius: 5px;
+    /*padding:1px;*/
 }
 
 .calculator-display p
@@ -117,6 +118,7 @@ footer
 .button-container
 {
     border: 2px solid orange;
+    background-color: rgb(255, 247, 247);
     width:100%;
     height: calc(100% - var(--displayHeight) - 5px);
     min-height: calc(7rem);
@@ -129,7 +131,7 @@ footer
                     "n4     n5  n6  pls"
                     "n1     n2  n3  min"
                     "dec    n0  e   e";
-    gap:4px;
+    gap:2px;
     grid-template-rows: repeat(7, minmax(0, 1fr));
 }
 
@@ -137,8 +139,10 @@ footer
 {
     border:none;
     font-family: 'Courier Prime', monospace;
-    padding:0;
+    padding:4px;
     min-height:1rem;
+    border-radius: 2px;
+    font-size:3vh;
 }
 
 .button img
@@ -166,14 +170,11 @@ td
     text-align: left;
 }
 
-td:first-child
+.calculator-display td:first-child, .calculator-display td:nth-child(3)
 {
-    width:2em;
+    width:1em;
 }
-td:nth-child(3)
-{
-    width:2em
-}
+
 
 .theme-numeric
 {

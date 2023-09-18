@@ -10,7 +10,7 @@ const tableOutput = document.getElementById("outputTable");
 
 
 // Setup the calculator
-generateTable();
+const gInputCell = generateTable();
 
 // Functions
 function generateTable()	// Programatically generate the table for displaying input stack
@@ -35,9 +35,13 @@ function generateTable()	// Programatically generate the table for displaying in
 	}
 
 	const inputRow = tableOutput.insertRow(8);
-	const inputCell = inputRow.insertCell(0);
-	inputCell.colSpan = 4;
-	inputCell.innerHTML = ":"
+	const cell1 = inputRow.insertCell(0);
+	cell1.innerHTML = ":"
+	const inputCell = inputRow.insertCell(1);
+	inputCell.colSpan = 3;
+	inputCell.innerHTML;
+
+	return inputCell;
 	
 }
 
@@ -75,9 +79,6 @@ function fillTable()	// Fill the table with the values from the stack
 
 function inputDigit(d)	// Input digits into the input cell of the display
 {
-	const inputCell = tableOutput.firstElementChild;
-	/*
-	const inputCell = tableOutput.rows[tableOutput.rows.length - 1].cells[1];
 	
 	if ((d == ".") && (inputCell.innerHTML == ""))
 	{
@@ -87,8 +88,7 @@ function inputDigit(d)	// Input digits into the input cell of the display
 	{
 		return;
 	}
-	*/
-    inputCell.innerHTML += d;
+    gInputCell.innerHTML += d;
 }
 
 function sendToStack()	// Send value from input cell to the stack
